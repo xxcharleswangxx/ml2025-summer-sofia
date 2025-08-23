@@ -9,6 +9,8 @@
     The basic functionality of data processing (data initialization, data insertion, data search) should be done via Object-Oriented Programming Paradigm (i.e. using Classes)
 """
 
+from util import *
+
 
 class module5_oop:
     def __init__(self, N):
@@ -33,23 +35,6 @@ class module5_oop:
 
 
 def simple_python_program():
-    def get_a_number(prompt='', check=None):
-        while True:
-            try:
-                tmp = input(prompt)
-                tmp = float(tmp)
-            except ValueError as e:
-                print(e)
-                continue
-            except EOFError:
-                return None, None
-
-            if check is None or check(tmp):
-                return tmp
-
-    def print_value(x):
-        return int(x) if x.is_integer() else x
-
     # prompts for input N (positive integer)
     N = get_a_number("Please provide positive integer N: ", lambda x: x > 0 and x.is_integer())
     if N is None:
@@ -74,6 +59,7 @@ def simple_python_program():
 
     ind = my_numbers.find_number(X)
     print(f"X = {print_value(X)} is at index {ind:d}")
+    return ind
 
 if __name__ == "__main__":
     simple_python_program()

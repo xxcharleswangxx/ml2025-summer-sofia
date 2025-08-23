@@ -3,26 +3,10 @@
 """
 
 from module5_mod import module5_mod
+from util import *
 
 
 def simple_python_program():
-    def get_a_number(prompt='', check=None):
-        while True:
-            try:
-                tmp = input(prompt)
-                tmp = float(tmp)
-            except ValueError as e:
-                print(e)
-                continue
-            except EOFError:
-                return None, None
-
-            if check is None or check(tmp):
-                return tmp
-
-    def print_value(x):
-        return int(x) if x.is_integer() else x
-
     # prompts for input N (positive integer)
     N = get_a_number("Please provide positive integer N: ", lambda x: x > 0 and x.is_integer())
     if N is None:
@@ -47,6 +31,7 @@ def simple_python_program():
 
     ind = my_numbers.find_number(X)
     print(f"X = {print_value(X)} is at index {ind:d}")
+    return ind
 
 
 if __name__ == "__main__":
