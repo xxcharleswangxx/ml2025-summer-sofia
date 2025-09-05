@@ -1,4 +1,4 @@
-def get_a_number(prompt='', check=None):
+def get_a_number(prompt='', check=None, check_msg=''):
     while True:
         try:
             tmp = input(prompt)
@@ -11,6 +11,8 @@ def get_a_number(prompt='', check=None):
 
         if check is None or check(tmp):
             return tmp
+        elif check_msg:
+            print(check_msg)
 
 
 def print_value(x):
